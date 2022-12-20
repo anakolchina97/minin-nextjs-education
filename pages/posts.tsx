@@ -14,7 +14,7 @@ export default function Posts({ posts: serverPosts }: PostsPageProps) {
 
   useEffect(() => {
     async function load() {
-      const response = await fetch(`https://json-server-gilt.vercel.app/posts`);
+      const response = await fetch(`${process.env.API_URL}/posts`);
       const json = await response.json();
       setPosts(json);
     }
