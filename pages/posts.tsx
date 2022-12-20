@@ -1,9 +1,15 @@
+import { NextPageContext } from "next";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { MainLayout } from "../components/MainLayout";
+import { MyPost } from "../interfaces/post";
 import styles from "../styles/Posts.module.scss";
 
-export default function Posts({ posts: serverPosts }) {
+interface PostsPageProps {
+  posts: MyPost[];
+}
+
+export default function Posts({ posts: serverPosts }: PostsPageProps) {
   const [posts, setPosts] = useState(serverPosts);
 
   useEffect(() => {
@@ -37,7 +43,7 @@ export default function Posts({ posts: serverPosts }) {
 }
 
 //  статический метод, который будет выполняться на сервере
-Posts.getInitialProps = async ({ req }) => {
+Posts.getInitialProps = async ({ req }: NextPageContext) => {
   if (!req) {
     return {
       posts: null,
@@ -45,7 +51,7 @@ Posts.getInitialProps = async ({ req }) => {
   }
 
   const response = await fetch("http://localhost:4200/posts");
-  const posts = await response.json();
+  const posts: MyPost[] = await response.json();
 
   return {
     posts,
