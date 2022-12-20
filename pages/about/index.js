@@ -7,7 +7,7 @@ export default function About() {
   };
 
   return (
-    <MainLayout title="About">
+    <MainLayout titleText="About">
       <h1>About</h1>
 
       <button onClick={linkClickHandler}>Go back to home</button>

@@ -2,7 +2,7 @@ import { MainLayout } from "../components/MainLayout";
 
 export default function Posts() {
   return (
-    <MainLayout title="Posts">
+    <MainLayout titleText="Posts">
       <h1>Posts</h1>
     </MainLayout>
   );
