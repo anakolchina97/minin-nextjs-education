@@ -1,3 +1,12 @@
+import Head from "next/head";
+
 export default function Posts() {
-  return <h1>Posts</h1>;
+  return (
+    <>
+      <Head>
+        <title>Next.JS | Posts</title>
+      </Head>
+      <h1>Posts</h1>
+    </>
+  );
 }
