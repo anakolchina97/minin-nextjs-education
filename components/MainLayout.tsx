@@ -1,9 +1,13 @@
 import Head from "next/head";
-import Link from "next/link";
 import { Container } from "./Container";
 import { Nav } from "./Nav";
 
-export function MainLayout({ children, titleText }) {
+interface MainPageProps {
+  children: React.ReactNode;
+  titleText?: string;
+}
+
+export function MainLayout({ children, titleText }: MainPageProps) {
   const title = `Next.JS ${titleText}`;
   return (
     <>
